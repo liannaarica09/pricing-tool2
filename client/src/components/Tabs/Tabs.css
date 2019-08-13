@@ -1,0 +1,142 @@
+.tabs {
+    /* box-sizing: border-box; */
+    color: rgb(6, 138, 247);
+    border-color: #5188B5;
+    /* border: 0px; */
+}
+
+.tabs {
+    /* box-sizing: border-box; */
+    color: rgb(6, 138, 247);
+    border-color: rgb(172, 188, 201);
+    /* border: 0px; */
+}
+
+.tabs ul {
+    list-style: none;
+}
+
+.tabs li {
+    float: left;
+    position: relative;
+    width: 50%;
+}
+
+.tabs a {
+    float: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    text-decoration: none;
+    background-color: rgb(189, 220, 245);
+
+    /* Only round the top corners */
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.tabs .activeTab {
+    /* color: rgb(78, 3, 121); */
+    /* background-color: rgb(203, 172, 218); */
+    z-index: 3;
+}
+
+.tabs .activeTab a {
+    /* Colors when tab is active */
+    background: var(--active-background);
+    color: var(--active-text);
+    border: var(--active-border);
+}
+
+.tabs li:before,
+.tabs li:after,
+.tabs li a:before,
+.tabs li a:after {
+    /* All pseudo elements are 
+     abs. positioned and on bottom */
+    position: absolute;
+    bottom: 0;
+}
+
+.tabs li:last-child:after,
+.tabs li:last-child a:after,
+.tabs li:first-child:before,
+.tabs li:first-child a:before,
+.tabs .activeTab:after,
+.tabs .activeTab:before,
+.tabs .activeTab a:after,
+.tabs .activeTab a:before {
+    content: "";
+}
+
+.tabs .activeTab:before,
+.tabs .activeTab:after {
+    background: var(--active-background);
+
+    /* Squares below circles */
+    z-index: 1;
+}
+
+/* Squares */
+.tabs li:before,
+.tabs li:after {
+    background-color: rgb(189, 220, 245);
+    width: 10px;
+    height: 10px;
+}
+
+.tabs li:before {
+    left: -10px;
+}
+
+.tabs li:after {
+    right: -10px;
+}
+
+/* Circles */
+.tabs li a:after,
+.tabs li a:before {
+    width: 20px;
+    height: 20px;
+    /* Circles are circular */
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background: white;
+
+    /* Circles over squares */
+    z-index: 2;
+}
+
+.tabs .activeTab a:after,
+.tabs .activeTab a:before {
+    background-color: rgb(189, 220, 245);
+}
+
+/* First and last tabs have different
+   outside color needs */
+.tabs li:first-child.activeTab a:before,
+.tabs li:last-child.activeTab a:after {
+    background: white;
+}
+
+.tabs li:hover:after,
+.tabs li:hover:before {
+    background: var(--hover-background);
+}
+
+.tabs li:first-child.hover a:after {
+    background: var(--hover-background);
+}
+
+.tabs li a:before {
+    left: -20px;
+}
+
+.tabs li a:after {
+    right: -20px;
+}
