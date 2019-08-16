@@ -1,20 +1,21 @@
-import React from 'react';
-import Tabs from './components/Tabs'
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NoMatch from "./pages/NoMatch";
+import MainPage from "./pages/MainPage";
 import './App.css';
 
-function App() {
-  return (
-    <div className="content">
-      <header>
-        <div className="bubbles">
-          <h1>Pricing Tool</h1>
-        </div>
-      </header>
-      <div className="container">
-        <Tabs></Tabs>
-      </div>
-    </div>
-  );
+class App extends Component {
+
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route component={NoMatch} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;
